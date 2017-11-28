@@ -19,10 +19,8 @@ import org.jetbrains.plugins.scala.extensions.ValidSmartPointer
   * Important: Use methods getElement, getStartElement, getEndElement to get psiElements passed via constructor
   * arguments.
   */
-abstract class AbstractFixOnPsiElement[T <: PsiElement](name: String, startElement: T, endElement: T)
-  extends LocalQuickFixOnPsiElement(startElement, endElement) {
-
-  def this(name: String, element: T) = this(name, element, element)
+abstract class AbstractFixOnPsiElement[T <: PsiElement](name: String, element: T)
+  extends LocalQuickFixOnPsiElement(element) {
 
   override def getText: String = name
 
